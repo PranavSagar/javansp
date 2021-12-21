@@ -3,21 +3,17 @@ import java.sql.*;
 public class main {
     public static void main(String[] args) throws SQLException {
         try {
-            //String url = "jdbc:sqlite:D:\\Git\\javansp\\abc.db";
             Class.forName("org.sqlite.JDBC");
             Connection con = DriverManager.getConnection("jdbc:sqlite:D:\\Git\\javansp\\abc.db");
             Statement st = con.createStatement();
             st.execute("CREATE TABLE IF NOT EXISTS student"+
                     "(name TEXT,phone INTEGER,email TEXT)");
-            //System.out.println(st.execute("SELECT * FROM Branch"));
             st.execute("SELECT * FROM student");
             ResultSet result = st.getResultSet();
             while(result.next()){
                 String name = result.getString("name");
                 int branch = result.getInt("phone");
                 String email = result.getString("email");
-
-
                 System.out.println(name + " | "+ branch + " | "+email);
             }
             result.close();
@@ -28,9 +24,5 @@ public class main {
         }catch(SQLException | ClassNotFoundException e){
             System.out.println("Something went wrong");
         }
-//        String sql = " SELECT * FROM Branch";
-//
-//        Statement st = con.createStatement();
-
     }
 }

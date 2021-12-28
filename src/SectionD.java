@@ -140,7 +140,7 @@ public class SectionD extends JFrame {
                         JOptionPane.showMessageDialog(btnNewButton, "This is alredy exist");
                     } else {
                         JOptionPane.showMessageDialog(btnNewButton,
-                                "Welcome, " + msg + "Your entry pass is sucessfully created");
+                                "Welcome, " + msg + " Your entry pass is sucessfully created");
                     }
                     connection.close();
                 } catch (Exception exception) {

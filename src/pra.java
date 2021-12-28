@@ -1,20 +1,18 @@
 import java.sql.*;
 
-public class main {
+public class pra {
     public static void main(String[] args) throws SQLException {
         try {
             Class.forName("org.sqlite.JDBC");
-            Connection con = DriverManager.getConnection("jdbc:sqlite:D:\\Git\\javansp\\abc.db");
+            Connection con = DriverManager.getConnection("jdbc:sqlite:D:\\Git\\javansp\\xyz.db");
             Statement st = con.createStatement();
-           // st.execute("CREATE TABLE IF NOT EXISTS student"+
-                    //"(name TEXT,phone INTEGER,email TEXT)");
-            st.execute("SELECT * FROM student");
+            st.execute("SELECT * FROM train");
             ResultSet result = st.getResultSet();
             while(result.next()){
                 String name = result.getString("name");
-                int branch = result.getInt("phone");
-                String email = result.getString("email");
-                System.out.println(name + " | "+ branch + " | "+email);
+                int price = result.getInt("price");
+                String arrival = result.getString("arrival");
+                System.out.println(name + " | "+ price + " | "+arrival);
             }
             result.close();
             st.close();
